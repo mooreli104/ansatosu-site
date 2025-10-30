@@ -36,7 +36,8 @@ const scholarshipsCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     amount: z.number(),
-    eligibility: z.string(), 
+    frequency: z.string(),
+    eligibility: z.array(z.string()), 
     description: z.string(), 
     deadline: z.date(),
     order: z.number().default(0),
