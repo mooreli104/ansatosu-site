@@ -43,5 +43,3 @@ This immersive tour offers participants a first-hand look at **Pressurized Water
 
 Reserve your spot by **November 1st, 2025** using the link below.  
 Only confirmed registrants will receive transportation details and meeting instructions.
-
-[Register Now](https://example.com/davis-besse-2025)
