@@ -1,15 +1,4 @@
 ---
-import { getCollection } from "astro:content";
-
-// Get the office hours from the siteInfo collection
-let officeHours;
-try {
-  const siteInfoEntries = await getCollection("siteInfo");
-  officeHours = siteInfoEntries.find(entry => entry.id === "office-hours");
-} catch (error) {
-  // Collection might not exist yet when first setting up the project
-  console.log("Office hours not found or collections not yet available");
-}
 
 // Footer navigation groups
 const footerNavs = [
