@@ -89,11 +89,11 @@ const isFutureEvent = new Date(entry.data.date) > new Date();
             <p class="mb-4">Registration is required for this event.</p>
             
             {entry.data.registrationLink ? (
-              <Button href={entry.data.registrationLink} target="_blank">
+              <Button href={entry.data.registrationLink} target="_blank" variant="outline">
                 Register Now
               </Button>
             ) : (
-              <Button href="/contact?subject=Event+Registration">
+              <Button href="/join?subject=Event+Registration" variant="outline">
                 Contact Us to Register
               </Button>
             )}
@@ -111,7 +111,7 @@ const isFutureEvent = new Date(entry.data.date) > new Date();
     <div class="mt-12 flex flex-wrap gap-4">
       {
         isFutureEvent && entry.data.registrationLink && (
-          <Button href={entry.data.registrationLink} target="_blank" variant="primary">
+          <Button href={entry.data.registrationLink} target="_blank" variant="outline">
             Register for This Event
           </Button>
         )
