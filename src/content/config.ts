@@ -4,7 +4,7 @@ const staffCollection = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
-    title: z.string(), // e.g., "Senior Pastor", "Deaconess"
+    title: z.string(),
     image: z.string().startsWith('/uploads/staff/'),
     email: z.string().email().optional(),
     phone: z.string().optional(),
@@ -31,67 +31,22 @@ const eventsCollection = defineCollection({
   }),
 });
 
-const sermonsCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    slug: z.string().optional(), // Auto-generated if not provided
-    date: z.date(),
-    speaker: z.string(),
-    series: z.string().optional(),
-    scripture: z.string().optional(),
-    audioUrl: z.string().url().optional(),
-    videoUrl: z.string().url().optional(),
-    image: z.string().startsWith('/uploads/sermons/').optional(), // Thumbnail
-    summary: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    draft: z.boolean().default(false),
-  }),
-});
-
-const ministriesCollection = defineCollection({
+const scholarshipsCollection = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
-    logo: z.string().startsWith('/uploads/ministries/').optional(),
-    summary: z.string(),
-    coordinator: z.string().optional(),
-    contact: z.string().optional(), // Email or text
-    schedule: z.string().optional(),
-    order: z.number().optional(),
-    draft: z.boolean().default(false),
+    amount: z.number(),
+    eligibility: z.string(), 
+    description: z.string(), 
+    deadline: z.date(),
+    order: z.number().default(0),
+
   }),
 });
 
-const blogCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    slug: z.string().optional(),
-    pubDate: z.date(),
-    description: z.string(), // Short description for previews
-    author: z.string().default("ANS Staff"),
-    image: z.object({
-      url: z.string().startsWith('/uploads/blog/'),
-      alt: z.string()
-    }).optional(),
-    tags: z.array(z.string()).default(["general"]),
-    draft: z.boolean().default(false),
-  }),
-});
-
-const siteInfoCollection = defineCollection({
-  type: 'content', // Could be 'data' if only frontmatter is needed
-  schema: z.object({
-    title: z.string(), // For identifying the content block
-  }),
-});
 
 export const collections = {
   staff: staffCollection,
   events: eventsCollection,
-  sermons: sermonsCollection,
-  ministries: ministriesCollection,
-  blog: blogCollection,
-  siteInfo: siteInfoCollection,
+  scholarships: scholarshipsCollection,
 };
